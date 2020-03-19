@@ -14,9 +14,10 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    /*登录*/
     @RequestMapping("/login")
     public ResponseWrapper login(@RequestParam("phone") String phone, @RequestParam("password") String password) {
-        int value = userService.findUserByPhone(phone, password);
+        int value = userService.login(phone, password);
         if (value == 1) {
             return ResponseWrapper.markSuccess("登录成功");
         } else if (value == 0) {
@@ -25,6 +26,7 @@ public class UserController {
         return ResponseWrapper.markCustom(false, "3002", "账号不存在", ReturnCode.LOGIN_NOTNULL);
     }
 
+    /*注册*/
     @RequestMapping("/register")
     public ResponseWrapper register(@RequestParam String phone, @RequestParam String password,String verifyCode) {
         if (userService.register(phone, password, verifyCode)) {
@@ -33,11 +35,13 @@ public class UserController {
         return ResponseWrapper.markCustom(false, "3004", "请重新注册", ReturnCode.REGISTER_FAIL);
     }
 
+    /*根据号码个人信息*/
     @RequestMapping("/showInfo")
-    public ResponseWrapper showInfo(@RequestParam int userId) {
-         return ResponseWrapper.markCustom(true,"0000","查询成功",userService.showMyself(userId));
+    public ResponseWrapper showInfo(@RequestParam String phone) {
+         return ResponseWrapper.markCustom(true,"0000","查询成功",userService.getInfoByPhone(phone));
     }
 
+    /*修改个人信息*/
     @RequestMapping("/editInfo")
     public ResponseWrapper editInfo(@RequestParam int userId,@RequestParam(required = false) String photo, @RequestParam(required = false) String userName,
                                     @RequestParam(required = false) String gender,@RequestParam(required = false)String city, @RequestParam(required = false) String profile

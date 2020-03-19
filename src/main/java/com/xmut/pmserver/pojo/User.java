@@ -9,7 +9,6 @@ import java.sql.Date;
 
 
 @Data
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
@@ -36,5 +35,22 @@ public class User {
     this.userName = userName;
     this.pet = pet;
     this.profile = profile;
+  }
+
+
+  @Override
+  public String toString() {
+    return "User{" +
+            "city='" + city + '\'' +
+            ", gender='" + gender + '\'' +
+            ", photo='" + photo + '\'' +
+            ", userName='" + userName + '\'' +
+            ", follow=" + follow +
+            ", time=" + time +
+            ", collectLike=" + collectLike +
+            ", fans=" + fans +
+            ", profile='" + profile + '\'' +
+            ", pet='" + pet + '\'' +
+            '}';
   }
 }

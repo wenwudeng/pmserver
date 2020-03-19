@@ -11,7 +11,7 @@ public interface UserService {
      * @param password 登录密码
      * @return 账号密码正确：1；密码错误：0；账号不存在：-1
      */
-    int findUserByPhone(String phone,String password);
+    int login(String phone,String password);
 
     /**
      * 注册
@@ -23,11 +23,19 @@ public interface UserService {
     boolean register(String phone,String password,String verifyCode);
 
     /**
-     * 显示个人资料
+     * 指定id显示个人资料
      * @param id 指定id
      * @return User对象
      */
-    User showMyself(int id);
+   // User getInfoById(int id);
+
+
+    /**
+     * 指定phone显示个人资料
+     * @param phone
+     * @return
+     */
+    User getInfoByPhone(String phone);
 
     /**
      * 修改个人资料
