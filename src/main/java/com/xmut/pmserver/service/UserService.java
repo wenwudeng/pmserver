@@ -20,14 +20,14 @@ public interface UserService {
      * @param verifyCode 验证码
      * @return 注册成功：true；注册失败:false
      */
-    boolean register(String phone,String password,String verifyCode);
+    int register(String phone,String password,String verifyCode);
 
     /**
      * 指定id显示个人资料
      * @param id 指定id
      * @return User对象
      */
-   // User getInfoById(int id);
+   User getInfoById(int id);
 
 
     /**
@@ -47,5 +47,5 @@ public interface UserService {
      * @param profile
      * @param pet
      */
-    int editInfo(int id, String userName,String photo,  String gender, String city, String profile,String pet);
+    int editInfo(int userId , String userName,String photo,  String gender, String city, String profile,String pet);
 }

@@ -10,15 +10,16 @@ public interface UserMapper {
     User getInfoById(int id);
 
     /*指定号码查询*/
-    @Select("select user_name,photo,gender,city,follow,time,collect,fans,profile,pet from user where  phone = #{phone}")
-    User getInfoByPhone(String phone);
+    @Select("select user_id as userid,user_name,photo,gender,city,follow,time,collect,fans,profile,pet from user where  phone = #{phone}")
+    User getInfoByPhone(@Param("phone") String phone);
 
     /*登录*/
+
     @Select("select * from user where phone = #{phone} ")
     User loginByPhone(String phone);
 
     /*注册*/
-    @Options(useGeneratedKeys = true, keyProperty = "user.userId",keyColumn = "user_id")
+    @Options(useGeneratedKeys = true, keyProperty = "user.userid",keyColumn = "user_id")
     @Insert("insert into user values (null,null,#{user.phone},#{user.password},null,null,null,null,null,null,null,null,null)")
     void register(@Param("user") User user);
 

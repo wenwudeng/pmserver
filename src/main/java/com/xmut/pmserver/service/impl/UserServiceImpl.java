@@ -15,7 +15,9 @@ public class UserServiceImpl implements UserService {
     /*登录查询*/
     @Override
     public int login(String phone, String password) {
+        System.out.println(phone+password);
         User user = userMapper.loginByPhone(phone);
+        System.out.println(user);
         if (user != null) {
             if (user.getPassword().equals(password)) {
                 return 1;
@@ -28,26 +30,31 @@ public class UserServiceImpl implements UserService {
 
     /*注册*/
     @Override
-    public boolean register(String phone, String password, String verifyCode) {
+    public int register(String phone, String password, String verifyCode) {
         String code = "10086";
         User user = new User();
         user.setPhone(phone);
         user.setPassword(password);
-        System.out.println("account:"+phone +" "+"密码："+password);
         if (verifyCode.equals(code)) {
             userMapper.register(user);
-            System.out.println("获取插入id"+user.getUserId());
-            return true;
+            System.out.println("获取插入id"+user.getUserid());
+            return user.getUserid();
         }
 
-        return false;
+        return -1;
+    }
+
+    @Override
+    public User getInfoById(int id) {
+        return userMapper.getInfoById(id);
     }
 
     /*显示个人信息*/
     @Override
     public User getInfoByPhone(String phone) {
         User user = userMapper.getInfoByPhone(phone);
-        System.out.println("按号码查询个人信息"+user);
+        System.out.println(user.getUserid());
+        System.out.println("按号码r查询个人信息"+user);
         if (user != null) {
             return user;
         }
@@ -56,8 +63,8 @@ public class UserServiceImpl implements UserService {
 
     /*修改个人信息*/
     @Override
-    public  int editInfo(int id, String photo, String userName, String gender, String city, String profile,String pet) {
-        User user = new User(id, city, gender, userName, photo, profile,pet);
+    public  int editInfo(int userId, String photo, String userName, String gender, String city, String profile,String pet) {
+        User user = new User(userId, city, gender, userName, photo, profile,pet);
         System.out.println(user);
         return userMapper.editInfo(user);
     }
