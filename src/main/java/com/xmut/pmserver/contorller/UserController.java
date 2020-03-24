@@ -1,5 +1,6 @@
 package com.xmut.pmserver.contorller;
 
+import com.xmut.pmserver.pojo.User;
 import com.xmut.pmserver.result.ResponseWrapper;
 import com.xmut.pmserver.result.ReturnCode;
 import com.xmut.pmserver.service.UserService;
@@ -17,14 +18,13 @@ public class UserController {
     /*登录*/
     @RequestMapping("/login")
     public ResponseWrapper login(@RequestParam("phone") String phone, @RequestParam("password") String password) {
-
         int value = userService.login(phone, password);
-        if (value == 1) {
-            return ResponseWrapper.markSuccess(value);
-        } else if (value == 0) {
-            return ResponseWrapper.markCustom(false, "3001", "账号或密码错误", ReturnCode.LOGIN_FAIL);
+        if (value == 0) {
+            return ResponseWrapper.markCustom(false, "3001", "账号或密码错误", 0);
+        } else if (value ==-1 ) {
+            return ResponseWrapper.markCustom(false, "3002", "账号不存在", -1);
         }
-        return ResponseWrapper.markCustom(false, "3002", "账号不存在", ReturnCode.LOGIN_NOTNULL);
+        return ResponseWrapper.markSuccess(value);
     }
 
     /*注册*/
@@ -45,15 +45,19 @@ public class UserController {
 
     /*修改个人信息*/
     @RequestMapping("/editInfo")
-    public ResponseWrapper editInfo(@RequestParam String userId,@RequestParam(required = false) String photo, @RequestParam(required = false) String userName,
+    public ResponseWrapper editInfo(@RequestParam int userId,@RequestParam(required = false) String photo, @RequestParam(required = false) String userName,
                                     @RequestParam(required = false) String gender,@RequestParam(required = false)String city, @RequestParam(required = false) String profile
                                    , @RequestParam(required = false) String pet) {
-        return ResponseWrapper.markCustom(true, "3305", "修改成功", userService.editInfo(Integer.parseInt(userId),userName,photo,gender,city,profile,pet));
+        return ResponseWrapper.markCustom(true, "3305", "修改成功", userService.editInfo(userId,userName,photo,gender,city,profile,pet));
     }
     /*指定id查询个人信息*/
     @RequestMapping("/get")
     public ResponseWrapper get(@RequestParam int user_id) {
-        return ResponseWrapper.markCustom(true,"0000","查询成功",userService.getInfoById(user_id));
+        User user = userService.getInfoById(user_id);
+        if (user != null) {
+            return ResponseWrapper.markCustom(true,"0000","查询成功",user);
+        }
+        return ResponseWrapper.markCustom(false, "0001", "查询成功但无此记录",null);
     }
 
 

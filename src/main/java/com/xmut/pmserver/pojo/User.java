@@ -19,14 +19,10 @@ public class User {
   private String userName;
   private int follow;
   private Date time;
-  private int collectLike;
+  private int collect;
   private int fans;
   private String profile;
   private String pet;
-
-
-
-
 
 
   public User(int userid, String city, String gender, String photo, String userName, String profile,String pet) {
