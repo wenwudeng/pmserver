@@ -20,7 +20,8 @@ public interface UserMapper {
 
     /*注册*/
     @Options(useGeneratedKeys = true, keyProperty = "user.userid",keyColumn = "user_id")
-    @Insert("insert into user values (null,null,#{user.phone},#{user.password},null,null,null,null,null,null,null,null,null)")
+    @Insert("insert into user values (null,#{user.userName},#{user.phone},#{user.password}," +
+            "#{user.photo},#{user.gender},#{user.city},null,null,null,#{user.profile},#{user.pet},#{user.time},1)")
     void register(@Param("user") User user);
 
     /*修改个人资料*/

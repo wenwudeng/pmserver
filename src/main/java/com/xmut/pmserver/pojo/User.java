@@ -18,11 +18,12 @@ public class User {
   private String phone;
   private String userName;
   private int follow;
-  private Date time;
+  private String time;
   private int collect;
   private int fans;
   private String profile;
   private String pet;
+  private boolean status;
 
 
   public User(int userid, String city, String gender, String photo, String userName, String profile,String pet) {
