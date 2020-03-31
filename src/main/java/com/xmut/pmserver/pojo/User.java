@@ -3,7 +3,8 @@ package com.xmut.pmserver.pojo;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
+import java.util.List;
+
 
 @NoArgsConstructor
 @Data
@@ -24,6 +25,8 @@ public class User {
   private String profile;
   private String pet;
   private boolean status;
+
+  private List<Article> articleList;
 
 
   public User(int userid, String city, String gender, String photo, String userName, String profile,String pet) {

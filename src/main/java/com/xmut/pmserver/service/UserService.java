@@ -2,7 +2,6 @@ package com.xmut.pmserver.service;
 
 import com.xmut.pmserver.pojo.User;
 
-import java.sql.Date;
 
 public interface UserService {
     /**
@@ -39,7 +38,7 @@ public interface UserService {
 
     /**
      * 修改个人资料
-     * @param id
+     * @param userId
      * @param photo
      * @param userName
      * @param gender

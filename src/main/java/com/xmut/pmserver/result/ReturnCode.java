@@ -21,10 +21,14 @@ public enum ReturnCode {
     LOGIN_FAIL("3001", "账号或密码错误"),
     LOGIN_NOTNULL("3002","账户不存在"),
 
+
     REGISTER_SUCCESS("3003","注册成功"),
     REGISTER_FAIL("3004","注册失败"),
 
     EDIT_MY_INFO("3005", "修改成功"),
+
+    PUBLISH_ARTICLE_SUCCESS("3006","发贴成功"),
+    PUBLISH_ARTICLE_FAIL("3007","发贴失败"),
 
     SUCCESS("0000","查询成功"),
 
