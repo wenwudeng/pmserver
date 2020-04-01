@@ -3,6 +3,7 @@ package com.xmut.pmserver.service.impl;
 import com.xmut.pmserver.mapper.UserMapper;
 import com.xmut.pmserver.pojo.User;
 import com.xmut.pmserver.service.UserService;
+import com.xmut.pmserver.util.DataUtil;
 import com.xmut.pmserver.util.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,7 +43,7 @@ public class UserServiceImpl implements UserService {
         user.setProfile("请点击头像完善个人资料");
         user.setPet("请点击头像完善个人资料");
         user.setPhoto("http://47.101.171.252:81/static/1936aba4-f834-4e88-9017-2b37f1817442.png");
-        user.setTime(Utils.getRegisterDate());
+        user.setTime(Utils.getDate());
         if (verifyCode.equals(code)) {
             userMapper.register(user);
             System.out.println("用户注册"+user);

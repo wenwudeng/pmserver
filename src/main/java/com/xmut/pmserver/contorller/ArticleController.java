@@ -1,6 +1,5 @@
 package com.xmut.pmserver.contorller;
 
-import com.xmut.pmserver.pojo.Article;
 import com.xmut.pmserver.result.ResponseWrapper;
 import com.xmut.pmserver.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +24,22 @@ public class ArticleController {
     }
 
 
-    /*根据用户id查找所有文章*/
+    /*查找所有文章*/
     @RequestMapping("/getAllArticle")
-    public ResponseWrapper getAllArtcles(@RequestParam int userid) {
+    public ResponseWrapper getAllArticles(@RequestParam int userid) {
         return ResponseWrapper.markCustom(true,"0000","查询成功",articleService.getAllByUserId(userid));
+    }
+
+    /*查找文章*/
+    @RequestMapping("/getArticle")
+    public ResponseWrapper getArticle(@RequestParam int id) {
+        return ResponseWrapper.markCustom(true,"0000","查询成功",articleService.getOneById(id));
+    }
+
+    /*删除文章*/
+    @RequestMapping("/delete")
+    public ResponseWrapper delete(@RequestParam int id) {
+        return ResponseWrapper.markCustom(true,"3008","删除成功",articleService.deleteById(id));
     }
 
 }

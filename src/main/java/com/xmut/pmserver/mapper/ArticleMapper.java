@@ -1,10 +1,7 @@
 package com.xmut.pmserver.mapper;
 
 import com.xmut.pmserver.pojo.Article;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -19,9 +16,19 @@ public interface ArticleMapper {
             "#{article.img},#{article.location},#{article.like},#{article.collect},#{article.time},#{article.status})")
     int addArticle(@Param("article") Article article);
 
-    /*按用户id查找所有文章文章*/
+
+    /*删*/
+    @Delete("delete from article where id = #{id}")
+    int deleteById(@Param("id") int id);
+
+    /*按用户id查找所有文章*/
     @Select("select * from article where userid = #{userid}")
-    List<Article> findByuserId(@Param("userid") int userid);
+    List<Article> findByUserId(@Param("userid") int userid);
+
+
+    /*指定id查询*/
+    @Select("select * from article where id = #{id}")
+    Article getOne(@Param("id") int id);
 
 
 }

@@ -10,7 +10,7 @@ public class Utils extends UtilsBaseData{
      * 生成注册日期
      * @return
      */
-    public static String getRegisterDate() {
+    public static String getDate() {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-01");
         return sdf.format(date);

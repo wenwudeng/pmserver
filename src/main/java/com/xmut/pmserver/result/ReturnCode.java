@@ -21,7 +21,6 @@ public enum ReturnCode {
     LOGIN_FAIL("3001", "账号或密码错误"),
     LOGIN_NOTNULL("3002","账户不存在"),
 
-
     REGISTER_SUCCESS("3003","注册成功"),
     REGISTER_FAIL("3004","注册失败"),
 
@@ -29,6 +28,8 @@ public enum ReturnCode {
 
     PUBLISH_ARTICLE_SUCCESS("3006","发贴成功"),
     PUBLISH_ARTICLE_FAIL("3007","发贴失败"),
+
+    DELETE_SUCCESS("3008", "删除成功"),
 
     SUCCESS("0000","查询成功"),
 
