@@ -17,12 +17,11 @@ public class UserServiceImpl implements UserService {
     /*登录查询*/
     @Override
     public int login(String phone, String password) {
-        System.out.println(phone+password);
         User user = userMapper.loginByPhone(phone);
         System.out.println("登陆查询"+user);
         if (user != null) {
             if (user.getPassword().equals(password)) {
-                return user.getUserid();
+                return user.getId();
             }else {
                 return 0;
             }
@@ -47,7 +46,7 @@ public class UserServiceImpl implements UserService {
         if (verifyCode.equals(code)) {
             userMapper.register(user);
             System.out.println("用户注册"+user);
-            return user.getUserid();
+            return user.getId();
         }
 
         return -1;
@@ -66,7 +65,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getInfoByPhone(String phone) {
         User user = userMapper.getInfoByPhone(phone);
-        System.out.println(user.getUserid());
+        System.out.println(user.getId());
         System.out.println("按号码查询个人信息"+user);
         if (user != null) {
             return user;
@@ -76,8 +75,8 @@ public class UserServiceImpl implements UserService {
 
     /*修改个人信息*/
     @Override
-    public  int editInfo(int userId, String photo, String userName, String gender, String city, String profile,String pet) {
-        User user = new User(userId, city, gender, userName, photo, profile,pet);
+    public  int editInfo(int id, String photo, String userName, String gender, String city, String profile,String pet) {
+        User user = new User(id, city, gender, userName, photo, profile,pet);
         System.out.println("修改个人信息"+user);
         return userMapper.editInfo(user);
     }

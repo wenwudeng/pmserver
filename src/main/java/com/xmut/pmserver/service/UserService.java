@@ -38,7 +38,7 @@ public interface UserService {
 
     /**
      * 修改个人资料
-     * @param userId
+     * @param id
      * @param photo
      * @param userName
      * @param gender
@@ -46,5 +46,5 @@ public interface UserService {
      * @param profile
      * @param pet
      */
-    int editInfo(int userId , String userName,String photo,  String gender, String city, String profile,String pet);
+    int editInfo(int id , String userName,String photo,  String gender, String city, String profile,String pet);
 }

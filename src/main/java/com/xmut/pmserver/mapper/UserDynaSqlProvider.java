@@ -26,7 +26,7 @@ public class UserDynaSqlProvider {
             if (user.getPet() != null) {
                 SET("pet = #{pet}");
             }
-            WHERE("user_id = #{userid }");
+            WHERE("id = #{id }");
         }}.toString();
     }
 

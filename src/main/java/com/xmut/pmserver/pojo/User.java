@@ -11,7 +11,7 @@ import java.util.List;
 public class User {
 
 
-  private int userid;
+  private int id;
   private String city;
   private String gender;
   private String photo;
@@ -29,8 +29,8 @@ public class User {
   private List<Article> articleList;
 
 
-  public User(int userid, String city, String gender, String photo, String userName, String profile,String pet) {
-    this.userid = userid;
+  public User(int id, String city, String gender, String photo, String userName, String profile,String pet) {
+    this.id = id;
     this.city = city;
     this.gender = gender;
     this.photo = photo;
