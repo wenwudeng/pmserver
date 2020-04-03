@@ -18,7 +18,7 @@ public class ArticleController {
     public ResponseWrapper publish(@RequestParam("userid") int userid, String title, String content, String img, String location) {
         if (articleService.addArticle(userid, title, content, img, location)) {
             return ResponseWrapper.markCustom(true, "3006", "发帖成功", null);
-        }else {
+        } else {
             return ResponseWrapper.markCustom(false, "3007", "发帖失败", null);
         }
     }
@@ -27,19 +27,24 @@ public class ArticleController {
     /*查找所有文章*/
     @RequestMapping("/getAllArticle")
     public ResponseWrapper getAllArticles(@RequestParam int userid) {
-        return ResponseWrapper.markCustom(true,"0000","查询成功",articleService.getAllByUserId(userid));
+        return ResponseWrapper.markCustom(true, "0000", "查询成功", articleService.getAllByUserId(userid));
     }
 
     /*查找文章*/
     @RequestMapping("/getArticle")
     public ResponseWrapper getArticle(@RequestParam int id) {
-        return ResponseWrapper.markCustom(true,"0000","查询成功",articleService.getOneById(id));
+        return ResponseWrapper.markCustom(true, "0000", "查询成功", articleService.getOneById(id));
     }
 
     /*删除文章*/
     @RequestMapping("/delete")
     public ResponseWrapper delete(@RequestParam int id) {
-        return ResponseWrapper.markCustom(true,"3008","删除成功",articleService.deleteById(id));
+        return ResponseWrapper.markCustom(true, "3008", "删除成功", articleService.deleteById(id));
     }
 
+    /*查询所有文章及作者信息*/
+    @RequestMapping("/getArticles")
+    public ResponseWrapper getArticles() {
+        return ResponseWrapper.markCustom(true, "0000", "查询成功", articleService.showArticles());
+    }
 }

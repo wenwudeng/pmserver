@@ -1,10 +1,7 @@
 package com.xmut.pmserver.service.impl;
 
 import com.xmut.pmserver.mapper.CommentMapper;
-import com.xmut.pmserver.pojo.Comment;
-import com.xmut.pmserver.pojo.CommentItem;
-import com.xmut.pmserver.pojo.CommentList;
-import com.xmut.pmserver.pojo.ReplyComment;
+import com.xmut.pmserver.pojo.*;
 import com.xmut.pmserver.service.CommentService;
 import com.xmut.pmserver.util.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +25,13 @@ public class CommentServiceImpl implements CommentService {
       return commentMapper.add(comment);
     }
 
+    /*回复评论*/
+    @Override
+    public int addReply(Replycomment replycomment) {
+        replycomment.setTime(Utils.getDate());
+        replycomment.setStatus(true);
+        return commentMapper.addReply(replycomment);
+    }
     /*根据文章id返回一篇文章的所有评论信息*/
     @Override
     public List<Comment> getOneArticleComments(int articleId) {
@@ -53,17 +57,27 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public CommentList getAllComments() {
         CommentList list = new CommentList();
-        //list.setTotal(commentMapper.TotalComment(article_id));
+
         List<CommentItem> itemList = new ArrayList<>();
+
         //评论集合
         List<CommentItem> commentItemList = commentMapper.getComments();
         //回复评论集合
-        List<ReplyComment> replyCommentList = commentMapper.getReplyComments();
+        List<ReplyItem> replyItemList = commentMapper.getReplyComments();
+
         for (CommentItem item : commentItemList) {
-            item.setReplyList(replyCommentList);
+            List<ReplyItem> replyItems = new ArrayList<>();
+            for (ReplyItem reply : replyItemList) {
+                if (item.getId() == reply.getCommentId()) {
+                    replyItems.add(reply);
+                }
+
+            }
+            item.setReplyList(replyItems);
             itemList.add(item);
         }
         list.setList(itemList);
+        list.setTotal(commentItemList.size());
         return list;
     }
 }

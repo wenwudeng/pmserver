@@ -3,6 +3,7 @@ package com.xmut.pmserver.service.impl;
 import com.xmut.pmserver.mapper.ArticleMapper;
 
 import com.xmut.pmserver.pojo.Article;
+import com.xmut.pmserver.pojo.ShowArticle;
 import com.xmut.pmserver.service.ArticleService;
 import com.xmut.pmserver.util.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,11 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public Article getOneById(int id) {
         return articleMapper.getOne(id);
+    }
+
+    @Override
+    public List<ShowArticle> showArticles() {
+        return articleMapper.getArticles();
     }
 
 }

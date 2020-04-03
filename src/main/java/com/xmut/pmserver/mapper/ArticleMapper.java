@@ -1,6 +1,7 @@
 package com.xmut.pmserver.mapper;
 
 import com.xmut.pmserver.pojo.Article;
+import com.xmut.pmserver.pojo.ShowArticle;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -31,4 +32,9 @@ public interface ArticleMapper {
     Article getOne(@Param("id") int id);
 
 
+    /*查询所有文章及作者信息*/
+    @Select("select u.id articleId,a.id userId,u.user_name userName,u.photo userPhoto,\n" +
+            "a.title,a.content,a.img,a.location,a.like,a.collect \n" +
+            "from user u inner join article a on u.id = a.userid;")
+    List<ShowArticle> getArticles();
 }

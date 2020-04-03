@@ -2,12 +2,16 @@ package com.xmut.pmserver.service;
 
 import com.xmut.pmserver.pojo.Comment;
 import com.xmut.pmserver.pojo.CommentList;
+import com.xmut.pmserver.pojo.Replycomment;
 
 import java.util.List;
 
 public interface CommentService {
     /*评论*/
     int add(Comment comment);
+
+    /*回复评论*/
+    int addReply(Replycomment replycomment);
 
     /*按文章id 查询所有评论*/
     List<Comment> getOneArticleComments(int article_id);
@@ -20,5 +24,7 @@ public interface CommentService {
 
     /*查询所有评论、回复评论的评论的信息*/
     CommentList getAllComments();
+
+
 
 }

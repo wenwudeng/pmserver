@@ -1,6 +1,7 @@
 package com.xmut.pmserver.service;
 
 import com.xmut.pmserver.pojo.Article;
+import com.xmut.pmserver.pojo.ShowArticle;
 
 import java.util.List;
 
@@ -36,4 +37,10 @@ public interface ArticleService {
      * @return
      */
     Article getOneById(int id);
+
+    /**
+     * 查询所有文章及作者信息
+     * @return
+     */
+    List<ShowArticle> showArticles();
 }

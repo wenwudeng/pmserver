@@ -1,6 +1,7 @@
 package com.xmut.pmserver.contorller;
 
 import com.xmut.pmserver.pojo.Comment;
+import com.xmut.pmserver.pojo.Replycomment;
 import com.xmut.pmserver.result.ResponseWrapper;
 import com.xmut.pmserver.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +16,17 @@ import java.util.List;
 public class CommentController {
     @Autowired
     CommentService commentService;
-    private List<Comment> comments;
 
     /*评论*/
     @RequestMapping("/add")
     public ResponseWrapper add(@RequestParam int userid, @RequestParam int articleId, @RequestParam String content) {
         return ResponseWrapper.markCustom(true, "3009", "评论成功", commentService.add(new Comment(userid, articleId,content)));
+}
+
+    /*回复评论*/
+    @RequestMapping("/reply")
+    public ResponseWrapper reply(@RequestParam int userid, @RequestParam int commentId, @RequestParam String content) {
+        return ResponseWrapper.markCustom(true, "3009", "回复评论成功", commentService.addReply(new Replycomment(userid, commentId,content)));
     }
 
     /*指定文章id获取所有评论*/
@@ -46,6 +52,6 @@ public class CommentController {
     /*获取所有一级评论二级评论*/
     @RequestMapping("/getAll")
     public ResponseWrapper getAllComments() {
-        return ResponseWrapper.markSuccess(commentService.getAllComments());
+        return ResponseWrapper.markCustom(true,"0000","查询成功",commentService.getAllComments());
     }
 }

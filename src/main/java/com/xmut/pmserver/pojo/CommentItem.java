@@ -16,5 +16,5 @@ public class CommentItem {
     private String replyTotal;
     private String createDate;
 
-    private List<ReplyComment> replyList;
+    private List<ReplyItem> replyList;
 }

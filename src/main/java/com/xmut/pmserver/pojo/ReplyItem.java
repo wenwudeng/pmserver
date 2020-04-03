@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 /*回复评论*/
 @Data
 @NoArgsConstructor
-public class ReplyComment {
+public class ReplyItem {
     private String nickName;
     private String userLogo;
     private int id;
