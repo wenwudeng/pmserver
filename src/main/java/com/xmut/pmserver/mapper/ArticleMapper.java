@@ -31,9 +31,8 @@ public interface ArticleMapper {
     @Select("select * from article where id = #{id}")
     Article getOne(@Param("id") int id);
 
-
     /*查询所有文章及作者信息*/
-    @Select("select u.id articleId,a.id userId,u.user_name userName,u.photo userPhoto,\n" +
+    @Select("select a.id articleId,u.id userId,u.user_name userName,u.photo userPhoto,\n" +
             "a.title,a.content,a.img,a.location,a.like,a.collect \n" +
             "from user u inner join article a on u.id = a.userid;")
     List<ShowArticle> getArticles();

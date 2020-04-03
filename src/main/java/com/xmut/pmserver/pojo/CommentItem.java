@@ -13,7 +13,7 @@ public class CommentItem {
     private String userLogo;
     private String content;
     private String imgId;
-    private String replyTotal;
+    private int replyTotal;
     private String createDate;
 
     private List<ReplyItem> replyList;
