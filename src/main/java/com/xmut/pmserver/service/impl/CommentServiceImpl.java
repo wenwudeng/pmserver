@@ -55,16 +55,17 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public CommentList getAllComments() {
+    public CommentList getAllComments(int articleId) {
         CommentList list = new CommentList();
 
         List<CommentItem> itemList = new ArrayList<>();
 
         //评论集合
-        List<CommentItem> commentItemList = commentMapper.getComments();
+        List<CommentItem> commentItemList = commentMapper.getComments(articleId);
         //回复评论集合
         List<ReplyItem> replyItemList = commentMapper.getReplyComments();
 
+        //for循环遍历
         for (CommentItem item : commentItemList) {
             List<ReplyItem> replyItems = new ArrayList<>();
             for (ReplyItem reply : replyItemList) {

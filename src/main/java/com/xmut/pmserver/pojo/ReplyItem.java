@@ -13,4 +13,5 @@ public class ReplyItem {
     private int commentId;
     private String content;
     private String CreateDate;
+    private String status;
 }

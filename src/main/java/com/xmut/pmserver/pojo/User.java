@@ -26,7 +26,7 @@ public class User {
   private String pet;
   private boolean status;
 
-  private List<Article> articleList;
+  //private List<Article> articleList;
 
 
   public User(int id, String city, String gender, String photo, String userName, String profile,String pet) {
@@ -39,4 +39,18 @@ public class User {
     this.profile = profile;
   }
 
+  public User(int id, String city, String gender, String photo,  String userName, int follow, String time, int collect, int fans, String profile, String pet, boolean status) {
+    this.id = id;
+    this.city = city;
+    this.gender = gender;
+    this.photo = photo;
+    this.userName = userName;
+    this.follow = follow;
+    this.time = time;
+    this.collect = collect;
+    this.fans = fans;
+    this.profile = profile;
+    this.pet = pet;
+    this.status = status;
+  }
 }

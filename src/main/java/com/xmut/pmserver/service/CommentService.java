@@ -23,7 +23,7 @@ public interface CommentService {
     int delete(int id);
 
     /*查询所有评论、回复评论的评论的信息*/
-    CommentList getAllComments();
+    CommentList getAllComments(int articleId);
 
 
 

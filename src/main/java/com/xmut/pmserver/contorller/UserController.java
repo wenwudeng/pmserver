@@ -4,6 +4,7 @@ import com.xmut.pmserver.pojo.User;
 import com.xmut.pmserver.result.ResponseWrapper;
 import com.xmut.pmserver.result.ReturnCode;
 import com.xmut.pmserver.service.UserService;
+import com.xmut.pmserver.util.DataUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,7 +25,7 @@ public class UserController {
         } else if (value ==-1 ) {
             return ResponseWrapper.markCustom(false, "3002", "账号不存在", -1);
         }
-        return ResponseWrapper.markSuccess(value);
+        return ResponseWrapper.markSuccess(DataUtil.user);
     }
 
     /*注册*/

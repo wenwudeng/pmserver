@@ -24,13 +24,13 @@ public class ArticleController {
     }
 
 
-    /*查找所有文章*/
+    /*指定用户id查找所有文章*/
     @RequestMapping("/getAllArticle")
     public ResponseWrapper getAllArticles(@RequestParam int userid) {
         return ResponseWrapper.markCustom(true, "0000", "查询成功", articleService.getAllByUserId(userid));
     }
 
-    /*查找文章*/
+    /*指定文查id找文章*/
     @RequestMapping("/getArticle")
     public ResponseWrapper getArticle(@RequestParam int id) {
         return ResponseWrapper.markCustom(true, "0000", "查询成功", articleService.getOneById(id));

@@ -51,7 +51,7 @@ public class CommentController {
 
     /*获取所有一级评论二级评论*/
     @RequestMapping("/getAll")
-    public ResponseWrapper getAllComments() {
-        return ResponseWrapper.markCustom(true,"0000","查询成功",commentService.getAllComments());
+    public ResponseWrapper getAllComments(@RequestParam(required = true) int articleId) {
+        return ResponseWrapper.markCustom(true,"0000","查询成功",commentService.getAllComments(articleId));
     }
 }

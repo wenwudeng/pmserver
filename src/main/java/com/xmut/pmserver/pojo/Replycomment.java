@@ -14,7 +14,6 @@ public class Replycomment {
   private String time;
   private boolean status;
 
-
   public Replycomment(int userid, int commentId, String content) {
     this.userid = userid;
     this.commentId = commentId;

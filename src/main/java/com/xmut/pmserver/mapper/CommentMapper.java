@@ -25,6 +25,7 @@ public interface CommentMapper {
     @Select("select * from comment where articleId = #{articleId}")
     List<Comment> getOneArticleComments(@Param("articleId") int articleId);
 
+
     /*指定用户id获取所有一级评论*/
     @Select("select * from comment where userid = #{userid}")
     List<Comment> getUserAllComment(@Param("userid") int userid);
@@ -48,8 +49,8 @@ public interface CommentMapper {
     @Select("select u.id,u.user_name nickName,u.photo userLogo,\n" +
             "    c.content,c.replyTotal,c.time createDate\n" +
             "    from user u,comment c\n" +
-            "    where u.id = c.userid ")
-   List<CommentItem> getComments();
+            "    where u.id = c.userid and c.articleId = #{articleId}")
+   List<CommentItem> getComments(int articleId);
 
     /*select u.user_name nickName,u.photo userLogo,
 			 r.id,r.commentId,r.content,r.time createDate
