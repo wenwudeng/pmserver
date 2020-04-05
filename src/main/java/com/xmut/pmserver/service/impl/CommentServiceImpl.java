@@ -81,4 +81,9 @@ public class CommentServiceImpl implements CommentService {
         list.setTotal(commentItemList.size());
         return list;
     }
+
+    @Override
+    public List<GetCommentArticle> getCommentAndArticle(int userid) {
+        return commentMapper.getCommentAndArticle(userid);
+    }
 }

@@ -22,9 +22,6 @@ public class Question {
   private String time;
   private boolean status;
 
-  private List<Question> questions;
-
-
   public Question(int userid, String title, String content, String img,
                   int like, int collect,int answer, String time, boolean status,String location) {
     this.userid = userid;

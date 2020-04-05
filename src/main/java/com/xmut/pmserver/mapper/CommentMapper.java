@@ -1,9 +1,6 @@
 package com.xmut.pmserver.mapper;
 
-import com.xmut.pmserver.pojo.Comment;
-import com.xmut.pmserver.pojo.CommentItem;
-import com.xmut.pmserver.pojo.ReplyItem;
-import com.xmut.pmserver.pojo.Replycomment;
+import com.xmut.pmserver.pojo.*;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -34,6 +31,12 @@ public interface CommentMapper {
     @Delete("delete from comment where id = #{id}")
     int deleteById(@Param("id") int id);
 
+
+    /*指定用户id获取用户的所有评论及对应文章信息*/
+    @Select("select c.content cContent,c.like cLike ,c.time cTime,a.id aid, a.title,a.content,a.img,a.location,a.like aLike,a.collect \n" +
+            "from comment c ,article a \n" +
+            "where c.userid = #{userid} and c.articleId = a.id;")
+    List<GetCommentArticle> getCommentAndArticle(int userid);
 
 
 

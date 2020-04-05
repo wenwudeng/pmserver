@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class ShowArticle {
+
    private int articleId;
    private int userId;
    private String userName;

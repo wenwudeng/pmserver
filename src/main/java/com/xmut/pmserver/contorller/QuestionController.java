@@ -25,13 +25,13 @@ public class QuestionController {
     }
 
 
-    /*查找所有提问问题*/
+    /*指定用户id查找所有提问问题*/
     @RequestMapping("/getAll")
     public ResponseWrapper getAllArticles(@RequestParam int userid) {
         return ResponseWrapper.markCustom(true,"0000","查询成功",questionService.getAllByUserId(userid));
     }
 
-    /*指定查找问题*/
+    /*指定问题id查找问题*/
     @RequestMapping("/get")
     public ResponseWrapper getArticle(@RequestParam int id) {
         return ResponseWrapper.markCustom(true,"0000","查询成功",questionService.getOneById(id));
