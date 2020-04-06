@@ -42,4 +42,9 @@ public class QuestionController {
     public ResponseWrapper delete(@RequestParam int id) {
         return ResponseWrapper.markCustom(true,"3008","删除成功",questionService.deleteById(id));
     }
+
+    @RequestMapping("/getQuestions")
+    public ResponseWrapper getAllQuestions() {
+        return ResponseWrapper.markCustom(true, "0000", "查询成功", questionService.getQuestions());
+    }
 }

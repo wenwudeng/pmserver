@@ -1,6 +1,7 @@
 package com.xmut.pmserver.service;
 
 import com.xmut.pmserver.pojo.Question;
+import com.xmut.pmserver.pojo.QuestionHelp;
 
 import java.util.List;
 
@@ -36,4 +37,6 @@ public interface QuestionService {
      * @return
      */
     Question getOneById(int id);
+
+    List<QuestionHelp> getQuestions();
 }
