@@ -43,6 +43,7 @@ public class QuestionController {
         return ResponseWrapper.markCustom(true,"3008","删除成功",questionService.deleteById(id));
     }
 
+    /*宠友互助*/
     @RequestMapping("/getQuestions")
     public ResponseWrapper getAllQuestions() {
         return ResponseWrapper.markCustom(true, "0000", "查询成功", questionService.getQuestions());
