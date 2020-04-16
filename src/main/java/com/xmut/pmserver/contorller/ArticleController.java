@@ -47,4 +47,10 @@ public class ArticleController {
     public ResponseWrapper getArticles() {
         return ResponseWrapper.markCustom(true, "0000", "查询成功", articleService.showArticles());
     }
+
+    /*获取关注用户的文章*/
+    @RequestMapping("/getFollowedArticle")
+    public ResponseWrapper getFollowedArticle(@RequestParam int userId) {
+        return ResponseWrapper.markCustom(true, "0000", "查询成功", articleService.getFollowedArticle(userId));
+    }
 }

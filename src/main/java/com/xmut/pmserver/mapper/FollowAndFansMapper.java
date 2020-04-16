@@ -22,8 +22,8 @@ public interface FollowAndFansMapper {
     @Select("select count(id) from follow where userId = #{userId} and status = 1")
     int getFollowCount(int userId);
 
-    @Select("select u.id,u.user_name userName,u.photo ,f.status from user u,follow f where u.id = f.id and f.status = 1;")
-    List<AllFollowSInfo> getAllFollowInfo();
+    @Select("select u.id,u.user_name userName,u.photo ,f.status from user u,follow f where u.id = f.fId and f.userId = #{userId} and f.status = 1;")
+    List<AllFollowSInfo> getAllFollowInfo(int userId);
 
     /*粉丝*/
     @Insert("insert into fans values(null,#{fans.userId},#{fans.fId},#{fans.status})")

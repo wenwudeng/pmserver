@@ -39,8 +39,8 @@ public class FollowAndFansServiceImpl implements FollowAndFansService {
     }
 
     @Override
-    public List<AllFollowSInfo> getAllFollows() {
-        return mapper.getAllFollowInfo();
+    public List<AllFollowSInfo> getAllFollows(int userId) {
+        return mapper.getAllFollowInfo(userId);
     }
 
     /*粉丝*/

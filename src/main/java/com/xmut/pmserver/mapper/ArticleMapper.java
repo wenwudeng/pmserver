@@ -36,4 +36,11 @@ public interface ArticleMapper {
             "a.title,a.content,a.img,a.location,a.like,a.collect \n" +
             "from user u inner join article a on u.id = a.userid;")
     List<ShowArticle> getArticles();
+
+
+    /*查找关注的用户的文章信息*/
+    @Select("select u.id userId,u.user_name userName,u.photo userPhoto,\n" +
+            "a.id articleId,a.title,a.content,a.img,a.location,a.like,a.time,a.status\n" +
+            "from user u,article a,follow f where a.userId = u.id and f.fId = u.id and f.status =1 and f.userId = #{userId};")
+    List<ShowArticle> getFollowedArticle(int userId);
 }

@@ -43,4 +43,7 @@ public interface ArticleService {
      * @return
      */
     List<ShowArticle> showArticles();
+
+    /*获取关注用户的文章信息*/
+    List<ShowArticle> getFollowedArticle(int userId);
 }

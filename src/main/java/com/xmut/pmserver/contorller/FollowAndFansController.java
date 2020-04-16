@@ -36,8 +36,8 @@ public class FollowAndFansController {
     }
 
     @RequestMapping("/getAllFollowsInfo")
-    public ResponseWrapper getAllFollowsInfo() {
-        return ResponseWrapper.markCustom(true, "0000", "查询成功", followAndFans.getAllFollows());
+    public ResponseWrapper getAllFollowsInfo(@RequestParam int userId) {
+        return ResponseWrapper.markCustom(true, "0000", "查询成功", followAndFans.getAllFollows(userId));
     }
 
     /*粉丝*/

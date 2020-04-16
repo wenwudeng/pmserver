@@ -16,7 +16,7 @@ public interface FollowAndFansService {
 
     int getFollowCount(int userId);
 
-    List<AllFollowSInfo> getAllFollows();
+    List<AllFollowSInfo> getAllFollows(int userId);
 
     /*粉丝*/
     int fans(Fans fans);
