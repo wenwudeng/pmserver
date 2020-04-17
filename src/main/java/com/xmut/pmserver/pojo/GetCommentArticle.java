@@ -10,6 +10,7 @@ public class GetCommentArticle {
     private String cContent;
     private int cLike;
     private int aid;
+    private int userid;
     private String title;
     private String content;
     private String img;

@@ -65,4 +65,9 @@ public class ArticleServiceImpl implements ArticleService {
         return articleMapper.getFollowedArticle(userId);
     }
 
+    @Override
+    public List<ShowArticle> getDailyTips() {
+        return articleMapper.getDailyTips();
+    }
+
 }

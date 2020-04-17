@@ -26,11 +26,13 @@ public class FollowAndFansServiceImpl implements FollowAndFansService {
     }
 
     @Override
-    public boolean isFollow(int userId, int fId) {
-        if (mapper.isFollow(userId, fId) != null) {
-            return true;
+    public int isFollow(int userId, int fId) {
+        Object object = mapper.isFollow(userId, fId);
+        if (object != null) {
+            int temp = ((Boolean) object == true ? 1 : 0);
+            return temp;
         }
-        return false;
+        return 0;
     }
 
     @Override

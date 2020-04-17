@@ -19,7 +19,7 @@ public interface FollowAndFansMapper {
     @Select("select status from follow where userId = #{userId} and fId = #{fId}")
     Object isFollow(@Param("userId")int userId,@Param("fId") int fId);
 
-    @Select("select count(id) from follow where userId = #{userId} and status = 1")
+    @Select("select count(id) from follow where userId = #{userId} and fId <> 0 and status = 1")
     int getFollowCount(int userId);
 
     @Select("select u.id,u.user_name userName,u.photo ,f.status from user u,follow f where u.id = f.fId and f.userId = #{userId} and f.status = 1;")

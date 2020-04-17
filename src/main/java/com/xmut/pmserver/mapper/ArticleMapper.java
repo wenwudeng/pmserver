@@ -1,6 +1,7 @@
 package com.xmut.pmserver.mapper;
 
 import com.xmut.pmserver.pojo.Article;
+import com.xmut.pmserver.pojo.CollectionLike;
 import com.xmut.pmserver.pojo.ShowArticle;
 import org.apache.ibatis.annotations.*;
 
@@ -11,6 +12,7 @@ public interface ArticleMapper {
 
     /**
      * 发帖
+     *
      * @param article
      */
     @Insert("insert into article values (null,#{article.userid},#{article.title},#{article.content}," +
@@ -43,4 +45,16 @@ public interface ArticleMapper {
             "a.id articleId,a.title,a.content,a.img,a.location,a.like,a.time,a.status\n" +
             "from user u,article a,follow f where a.userId = u.id and f.fId = u.id and f.status =1 and f.userId = #{userId};")
     List<ShowArticle> getFollowedArticle(int userId);
+
+
+    /*获取每日贴士文章及作者信息*/
+    @Select("select t.id articleId,u.id userId,u.user_name userName,u.photo userPhoto,\n" +
+            "t.title,t.content,t.img,t.like \n" +
+            "from user u inner join tips t on u.id = t.userid;")
+    List<ShowArticle> getDailyTips();
+
+
+
+
+
 }

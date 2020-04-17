@@ -33,7 +33,7 @@ public interface CommentMapper {
 
 
     /*指定用户id获取用户的所有评论及对应文章信息*/
-    @Select("select c.content cContent,c.like cLike ,c.time cTime,a.id aid, a.title,a.content,a.img,a.location,a.like aLike,a.collect \n" +
+    @Select("select c.content cContent,c.like cLike ,c.time cTime,a.id aid,a.userid,a.title,a.content,a.img,a.location,a.like aLike,a.collect \n" +
             "from comment c ,article a \n" +
             "where c.userid = #{userid} and c.articleId = a.id;")
     List<GetCommentArticle> getCommentAndArticle(int userid);

@@ -12,7 +12,7 @@ public interface FollowAndFansService {
 
     int unFollow(Follow follow );
 
-    boolean isFollow(int userId,int fId);
+    int isFollow(int userId,int fId);
 
     int getFollowCount(int userId);
 

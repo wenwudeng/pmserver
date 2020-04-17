@@ -53,4 +53,10 @@ public class ArticleController {
     public ResponseWrapper getFollowedArticle(@RequestParam int userId) {
         return ResponseWrapper.markCustom(true, "0000", "查询成功", articleService.getFollowedArticle(userId));
     }
+
+    /*获取每日贴士文章及作者信息*/
+    @RequestMapping("/getDailyTips")
+    public ResponseWrapper getDailyTips() {
+        return ResponseWrapper.markCustom(true,"0000","查询成功",articleService.getDailyTips());
+    }
 }
