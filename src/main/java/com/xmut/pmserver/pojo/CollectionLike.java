@@ -2,9 +2,11 @@ package com.xmut.pmserver.pojo;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @NoArgsConstructor
+@ToString
 public class CollectionLike {
     private int id;
     private int userId;
@@ -36,5 +38,6 @@ public class CollectionLike {
         this.oId = oId;
         this.collection = collection;
     }
+
 
 }

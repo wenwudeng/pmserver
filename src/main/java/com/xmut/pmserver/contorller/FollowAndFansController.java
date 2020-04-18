@@ -40,21 +40,16 @@ public class FollowAndFansController {
         return ResponseWrapper.markCustom(true, "0000", "查询成功", followAndFans.getAllFollows(userId));
     }
 
-    /*粉丝*/
-    @RequestMapping("/fans")
-    public ResponseWrapper fans(@RequestParam int userId, @RequestParam int fId) {
-        return ResponseWrapper.markCustom(true, "30010", "回粉成功", followAndFans.fans(new Fans(userId, fId, true)));
+    @RequestMapping("/getFans")
+    public ResponseWrapper getFans(@RequestParam int fId) {
+        return ResponseWrapper.markCustom(true, "0000", "查询成功", followAndFans.getFansCount(fId));
     }
 
-    @RequestMapping("/unFans")
-    public ResponseWrapper unFans(@RequestParam int userId, @RequestParam int fId) {
-        return ResponseWrapper.markCustom(true, "30011", "取消回粉", followAndFans.unFans(new Fans(userId,fId,false)));
+    @RequestMapping("/getAllFansInfo")
+    public ResponseWrapper getAllFansInfo(@RequestParam int fId) {
+        return ResponseWrapper.markCustom(true, "0000", "查询成功", followAndFans.getAllFansInfo(fId));
     }
 
-    @RequestMapping("isFans")
-    public ResponseWrapper isFans(@RequestParam int userId, @RequestParam int fId) {
-        return ResponseWrapper.markCustom(true, "0000", "查询成功", followAndFans.isFans(userId, fId));
-    }
 
 
 }

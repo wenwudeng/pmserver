@@ -13,6 +13,7 @@ public class CollectionLikeServiceImpl implements CollectionAndLikeService {
 
     @Override
     public int support(CollectionLike cLike) {
+        System.out.println("C===="+cLike);
         return mapper.support(cLike);
     }
 

@@ -45,22 +45,17 @@ public class FollowAndFansServiceImpl implements FollowAndFansService {
         return mapper.getAllFollowInfo(userId);
     }
 
+
     /*粉丝*/
     @Override
-    public int fans(Fans fans) {
-        return mapper.fans(fans);
+    public int getFansCount(int fId) {
+        return mapper.getFansCount(fId);
     }
 
     @Override
-    public int unFans(Fans fans) {
-        return mapper.unFans(fans);
+    public List<AllFollowSInfo> getAllFansInfo(int fId) {
+        return mapper.getAllFansInfo(fId);
     }
 
-    @Override
-    public boolean isFans(int userId, int fId) {
-        if (mapper.isFans(userId, fId) != null) {
-            return true;
-        }
-        return false;
-    }
+
 }

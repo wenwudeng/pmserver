@@ -1,7 +1,6 @@
 package com.xmut.pmserver.mapper;
 
 import com.xmut.pmserver.pojo.Article;
-import com.xmut.pmserver.pojo.CollectionLike;
 import com.xmut.pmserver.pojo.ShowArticle;
 import org.apache.ibatis.annotations.*;
 

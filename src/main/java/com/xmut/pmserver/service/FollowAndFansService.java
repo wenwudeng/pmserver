@@ -19,10 +19,9 @@ public interface FollowAndFansService {
     List<AllFollowSInfo> getAllFollows(int userId);
 
     /*粉丝*/
-    int fans(Fans fans);
+    int getFansCount(int fId);
 
-    int unFans(Fans fans);
-
-    boolean isFans(int userId, int fId);
+    /*粉丝信息*/
+    List<AllFollowSInfo> getAllFansInfo(int fId);
 
 }
