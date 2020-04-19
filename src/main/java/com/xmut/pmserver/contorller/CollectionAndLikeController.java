@@ -53,4 +53,11 @@ public class CollectionAndLikeController {
         return ResponseWrapper.markCustom(true, "0000", "查询成功", service.getBeSupportInfo(oId));
     }
 
+
+    /*查询获赞列表及文章信息*/
+    @RequestMapping("/getCollection")
+    public ResponseWrapper getCollectionInfos(@RequestParam int userId) {
+        return ResponseWrapper.markCustom(true, "0000", "查询成功", service.getUserCollections(userId));
+    }
+
 }
