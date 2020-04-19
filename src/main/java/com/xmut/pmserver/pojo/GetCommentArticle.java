@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class GetCommentArticle {
+    private String authorName;
+    private String authorPhoto;
     private String cContent;
     private int cLike;
     private int aid;

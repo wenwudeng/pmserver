@@ -39,4 +39,18 @@ public class CollectionAndLikeController {
     public ResponseWrapper geLCollection(@RequestParam int articleId) {
         return ResponseWrapper.markCustom(true, "0000", "收藏信息", service.getLikeCollectionStatus(articleId));
     }
+
+    /*指定用户id获取获赞数*/
+    @RequestMapping("/getSupport")
+    public ResponseWrapper getSupport(@RequestParam int userId) {
+        return ResponseWrapper.markCustom(true, "0000", "查询成功", service.getCollectionByUserId(userId));
+    }
+
+
+    /*查询获赞列表及文章信息*/
+    @RequestMapping("/getSupportInfo")
+    public ResponseWrapper getSupportInfos(@RequestParam int oId) {
+        return ResponseWrapper.markCustom(true, "0000", "查询成功", service.getBeSupportInfo(oId));
+    }
+
 }

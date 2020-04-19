@@ -1,10 +1,13 @@
 package com.xmut.pmserver.service.impl;
 
 import com.xmut.pmserver.mapper.CollectionAndLikeMapper;
+import com.xmut.pmserver.pojo.BeSupportInfo;
 import com.xmut.pmserver.pojo.CollectionLike;
 import com.xmut.pmserver.service.CollectionAndLikeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CollectionLikeServiceImpl implements CollectionAndLikeService {
@@ -35,5 +38,15 @@ public class CollectionLikeServiceImpl implements CollectionAndLikeService {
     @Override
     public CollectionLike getLikeCollectionStatus(int articleId) {
         return mapper.getLikeCollectionStatus(articleId);
+    }
+
+    @Override
+    public int getCollectionByUserId(int userId) {
+        return mapper.getCollectionByUserId(userId);
+    }
+
+    @Override
+    public List<BeSupportInfo> getBeSupportInfo(int oId) {
+        return mapper.getBeSupportInfo(oId);
     }
 }
