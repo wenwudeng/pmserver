@@ -18,10 +18,7 @@ public class User {
   private String password;
   private String phone;
   private String userName;
-  private int follow;
   private String time;
-  private int collect;
-  private int fans;
   private String profile;
   private String pet;
   private boolean status;
@@ -39,16 +36,13 @@ public class User {
     this.profile = profile;
   }
 
-  public User(int id, String city, String gender, String photo,  String userName, int follow, String time, int collect, int fans, String profile, String pet, boolean status) {
+  public User(int id, String city, String gender, String photo,  String userName, String profile, String pet, boolean status) {
     this.id = id;
     this.city = city;
     this.gender = gender;
     this.photo = photo;
     this.userName = userName;
-    this.follow = follow;
     this.time = time;
-    this.collect = collect;
-    this.fans = fans;
     this.profile = profile;
     this.pet = pet;
     this.status = status;

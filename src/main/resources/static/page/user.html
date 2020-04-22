@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户信息管理</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="http://how2j.cn/study/vue.min.js"></script>
+    <style type="text/css">
+    </style>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js">
+    </script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+</head>
+<body>
+<div style="margin-left: 20px;margin-top: 20px">
+    搜索名字：
+    <div class="layui-inline">
+        <input type="text" class="form-control" id="nameinput" placeholder="请输入用户名">
+    </div>
+    <button class="btn btn-primary" id="namesearch">搜索</button>
+</div>
+
+<table style="height: 90%;margin-left: 20px" id="userinfo" lay-filter="test">
+
+</table>
+
+<script src="../layui/layui.js"></script>
+<script type="text/html" id="switchstatus">
+    <input type="checkbox" name="sex" value="{{d.status}}" lay-skin="switch" lay-text="冻结｜正常"
+           lay-filter="sexDemo" {{d.status=="1"?'checked':'冻结'}}>
+</script>
+<script>
+    layui.use('table', function () {
+        var table = layui.table;
+
+        //第一个实例
+        table.render({
+            id: 'userinfo'
+            , elem: '#userinfo'
+            , height: 680
+            , url: 'http://localhost:8081/api/admin/user' //数据接口
+            //开发时更改为localhost
+            , page: true //开启分页
+            , limit: 15
+            , limits: [15, 20, 30]
+            , cols: [[ //表头
+                {field: 'id', title: 'ID', width: 80, sort: true, fixed: 'left'}
+                , {field: 'userName', title: '用户名', width: 150}
+                , {field: 'phone', title: '手机号', width: 250}
+                , {field: 'city', title: '居住城市', width: 300}
+                , {field: 'profile', title: '个人简介', width: 300}
+                , {field: 'status', title: '账号状态', width: 150,
+                    templet: '#switchstatus', unresize: true}
+            ]]
+            , parseData: function (res) { //res 即为原始返回的数据
+                return {
+                    success: true,
+                    code: res.code,
+                    data: res.data, //解析数据列表
+                    count: res.count
+                };
+            }
+        });
+    });
+    $("#namesearch").click(function () {
+        var name = $("#nameinput").val();
+      /*  layui.$.support.cors = true; //允许ajax跨域*/
+        table = layui.table;
+        table.reload('userinfo', {
+            url: "http://localhost:8081/api/admin/vague"
+            , methods: "post"
+            , page: {
+                curr: 1 //重新从第 1 页开始
+            }
+            , where: {
+                'value':name
+            }
+        },'data')
+    })
+</script>
+</body>
+</html>

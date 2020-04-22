@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>密码重置</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <style type="text/css">
+    </style>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js">
+    </script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+</head>
+<body>
+<div>
+    <div class="header" >
+        <br/>
+        <h1 class="header-title">密码重置</h1>
+    </div>
+    <div class="content">
+        <div class="form-group">
+
+            <label for="usr">账号名:</label>
+            <input type="text" class="form-control" style="width:30%"  id="usr">
+            <br/>
+            <label for="password">重置密码:</label>
+            <input type="text" class="form-control" style="width:30%" id="password" value="resetpassword">
+            <br/>
+            <br/>
+            <input type="button" class="btn btn-info" value="确认重置" onclick="sendmail()">
+        </div>
+    </div>
+
+</div>
+
+</body>
+<style>
+    .header{
+        width: 100%;
+        height: auto;
+        margin-bottom: 30px;
+        margin-left: 50px;
+    }
+    .header-title{
+        margin-top: 10px;
+        font-size: large;
+    }
+    .content{
+        margin-left: 50px;
+    }
+</style>
+</html>

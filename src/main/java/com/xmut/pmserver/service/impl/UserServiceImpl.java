@@ -21,9 +21,7 @@ public class UserServiceImpl implements UserService {
         System.out.println("登陆查询"+user);
         if (user != null) {
             if (user.getPassword().equals(password)) {
-                DataUtil.user = new User(user.getId(),user.getCity(),user.getGender(),
-                        user.getPhoto(),user.getUserName(),user.getFollow(),
-                        user.getTime(),user.getCollect(),user.getFans(),user.getProfile(),user.getPet(),user.isStatus());
+                DataUtil.user = new User(user.getId(), user.getCity(), user.getGender(), user.getPhoto(), user.getUserName(), user.getProfile(), user.getPet(), user.isStatus());
                 return user.getId();
             }else {
                 return 0;

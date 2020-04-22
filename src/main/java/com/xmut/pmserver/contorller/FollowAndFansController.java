@@ -1,6 +1,5 @@
 package com.xmut.pmserver.contorller;
 
-import com.xmut.pmserver.pojo.Fans;
 import com.xmut.pmserver.pojo.Follow;
 import com.xmut.pmserver.result.ResponseWrapper;
 import com.xmut.pmserver.service.FollowAndFansService;

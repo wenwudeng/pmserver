@@ -17,4 +17,6 @@ public class ShowArticle {
    private String location;
    private int like;
    private int collect;
+   private String time;
+   private boolean status;
 }
