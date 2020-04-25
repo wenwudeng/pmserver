@@ -36,6 +36,12 @@
     <input type="checkbox" name="sex" value="{{d.status}}" lay-skin="switch" lay-text="冻结｜正常"
            lay-filter="sexDemo" {{d.status=="1"?'checked':'冻结'}}>
 </script>
+
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
 <script>
     layui.use('table', function () {
         var table = layui.table;
@@ -58,7 +64,7 @@
                 , {field: 'like', title: '点赞数', width: 150}
                 , {field: 'collect', title: '点赞数', width: 150}
                 , {field: 'time', title: '创作时间', width: 200}
-                , {field: 'status', title: '文章状态', width: 150, templet: '#switchstatus', unresize: true}
+                , {field: 'status', title: '文章状态', width: 200, templet: '#barDemo', unresize: true}
             ]]
             , parseData: function (res) { //res 即为原始返回的数据
                 return {
