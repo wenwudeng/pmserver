@@ -1,8 +1,8 @@
 package com.xmut.pmserver.contorller;
 
 import com.xmut.pmserver.pojo.User;
-import com.xmut.pmserver.result.ResponseWrapper;
-import com.xmut.pmserver.result.ReturnCode;
+import com.xmut.pmserver.wrapper.ResponseWrapper;
+import com.xmut.pmserver.wrapper.ReturnCode;
 import com.xmut.pmserver.service.UserService;
 import com.xmut.pmserver.util.DataUtil;
 import org.springframework.beans.factory.annotation.Autowired;

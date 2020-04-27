@@ -1,7 +1,5 @@
-package com.xmut.pmserver.message;
+package com.xmut.pmserver.socket;
 
-
-import com.xmut.pmserver.message.User;
 
 import java.io.IOException;
 import java.io.PrintWriter;

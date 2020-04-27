@@ -1,4 +1,4 @@
-package com.xmut.pmserver.message;
+package com.xmut.pmserver.socket;
 
 
 import java.io.BufferedReader;

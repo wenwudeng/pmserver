@@ -1,4 +1,4 @@
-package com.xmut.pmserver.result;
+package com.xmut.pmserver.wrapper;
 
 public class ResponseWrapperForBack {
 

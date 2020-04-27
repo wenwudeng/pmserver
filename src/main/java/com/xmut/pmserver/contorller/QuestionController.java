@@ -1,6 +1,6 @@
 package com.xmut.pmserver.contorller;
 
-import com.xmut.pmserver.result.ResponseWrapper;
+import com.xmut.pmserver.wrapper.ResponseWrapper;
 import com.xmut.pmserver.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,4 +1,4 @@
-package com.xmut.pmserver.tes;
+package com.xmut.pmserver.test;
 
 public class Test {
     public static void main(String[] args) {
