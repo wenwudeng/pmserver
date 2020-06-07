@@ -21,7 +21,8 @@ public class Server {
             Socket socket = serverSocket.accept();
             // 每接受一个线程，就随机生成一个一个新用户
             BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            User user = new User(br.readLine(),socket);
+            String[] str = br.readLine().split(",");
+            User user = new User(str[0],socket);
             System.out.println(user.getName() + "已连接...");
             manager.addClient(user);
             // 创建一个新的线程，接收信息并转发

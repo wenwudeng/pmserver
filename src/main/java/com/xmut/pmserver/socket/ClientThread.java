@@ -28,15 +28,7 @@ public class ClientThread extends Thread {
                     String msg=br.readLine();
                    // System.out.println("服务端发来的消息"+msg);
                     String[] str = msg.split(",");
-                    switch (str[0]) {
-                        case "say":
-                           /* System.out.println(str[1] + " 对   " + "您" + " 说:  "
-                                    + str[3]); */
-                            System.out.println(str[1] + "对您说：" + str[3]);
-                            break;
-                        default:
-                            break;
-                    }
+                    System.out.println(str[0] + "对您说：" + str[2]);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

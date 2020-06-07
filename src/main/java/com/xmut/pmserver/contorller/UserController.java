@@ -1,6 +1,7 @@
 package com.xmut.pmserver.contorller;
 
 import com.xmut.pmserver.pojo.User;
+import com.xmut.pmserver.util.Utils;
 import com.xmut.pmserver.wrapper.ResponseWrapper;
 import com.xmut.pmserver.wrapper.ReturnCode;
 import com.xmut.pmserver.service.UserService;
@@ -18,7 +19,7 @@ public class UserController {
 
     /*登录*/
     @RequestMapping("/login")
-    public ResponseWrapper login(@RequestParam("phone") String phone, @RequestParam("password") String password) {
+    public ResponseWrapper login(@RequestParam("phone") String phone, @RequestParam("password") String password) throws Exception {
         int value = userService.login(phone, password);
         if (value == 0) {
             return ResponseWrapper.markCustom(false, "3001", "账号或密码错误", 0);
@@ -30,7 +31,7 @@ public class UserController {
 
     /*注册*/
     @RequestMapping("/register")
-    public ResponseWrapper register(@RequestParam String phone, @RequestParam String password,@RequestParam String verifyCode) {
+    public ResponseWrapper register(@RequestParam String phone, @RequestParam String password,@RequestParam String verifyCode) throws Exception {
         int value = userService.register(phone, password, verifyCode);
         if ( value != -1) {
             return ResponseWrapper.markCustom(true, "3003", "注册成功", value);

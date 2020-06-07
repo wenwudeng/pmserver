@@ -1,39 +1,20 @@
-package com.xmut.pmserver.util;
+package com.xmut.pmserver.test;
 
 
 import org.apache.commons.codec.digest.DigestUtils;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Random;
+public class MD5Test {
 
-public class Utils extends UtilsBaseData{
-    /**
-     * 生成注册日期
-     * @return
-     */
-    public static String getDate() {
-        Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-01");
-        return sdf.format(date);
+    public static final String KEY = "wenWuDeng";
+
+    // 测试
+    public static void main(String[] args) throws Exception {
+        String str = "admin";
+      //  System.out.println("加密的字符串：" + str + "\t长度：" + str.length());
+     //   MD5Test.md52(str);
+       String str1 =  MD5Test.md5(str,KEY);
+        System.out.println(MD5Test.verify(str,KEY,str1));
     }
-
-    /**
-     * 生成随机昵称
-     *
-     * @return
-     */
-    public static String generateName() {
-        int adjLen= adjective.length;
-        int nLen= noun.length;
-        StringBuffer sb = new StringBuffer();
-        Random random = new Random();
-        sb.append(adjective[random.nextInt(adjLen)]);
-        sb.append(noun[random.nextInt(nLen)]);
-        return sb.toString();
-    }
-
-
     /**
      * @param text 明文
      * @param key  密钥
@@ -44,7 +25,7 @@ public class Utils extends UtilsBaseData{
     public static String md5(String text, String key) throws Exception {
         // 加密后的字符串
         String md5str = DigestUtils.md5Hex(text + key);
-     //   System.out.println("MD5加密后的字符串为:" + md5str);
+        System.out.println("MD5加密后的字符串为:" + md5str);
         return md5str;
     }
 
@@ -72,4 +53,8 @@ public class Utils extends UtilsBaseData{
         }
         return false;
     }
+
+
 }
+
+

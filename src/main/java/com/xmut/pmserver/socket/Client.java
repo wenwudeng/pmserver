@@ -28,19 +28,19 @@ public class Client {
             while(true)
             {
                 if (isFirst){
-                    out.println("root");
+                    out.println("xmut");
                     isFirst =false;
                 }else {
                     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
                     String s=br.readLine();
                     out.println(s);
-                    System.out.println("客户端发送："+s);
+                  // System.out.println("客户端发送："+s);
                 }
                 out.flush();
             }
 
         }catch(Exception e){
-            System.out.println("服务器异常");
+            System.out.println("服务器连接异常异常");
         }
     }
 }

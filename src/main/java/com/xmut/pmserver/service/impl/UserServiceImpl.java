@@ -11,16 +11,19 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService {
+    public static final String KEY = "wenWuDeng";
+
     @Autowired(required = false)
     UserMapper userMapper;
 
     /*登录查询*/
     @Override
-    public int login(String phone, String password) {
+    public int login(String phone, String password) throws Exception {
         User user = userMapper.loginByPhone(phone);
         System.out.println("登陆查询"+user);
         if (user != null) {
-            if (user.getPassword().equals(password)) {
+            //user.getPassword().equals(password)
+            if (Utils.verify(password,KEY,user.getPassword())) {
                 DataUtil.user = new User(user.getId(), user.getCity(), user.getGender(), user.getPhoto(), user.getUserName(), user.getProfile(), user.getPet(), user.isStatus());
                 return user.getId();
             }else {
@@ -32,11 +35,11 @@ public class UserServiceImpl implements UserService {
 
     /*注册*/
     @Override
-    public int register(String phone, String password, String verifyCode) {
+    public int register(String phone, String password, String verifyCode) throws Exception {
         String code = "10086";
         User user = new User();
         user.setPhone(phone);
-        user.setPassword(password);
+        user.setPassword(Utils.md5(password, KEY));
         user.setUserName(Utils.generateName());
         user.setGender("男");
         user.setCity("请点击头像填写地址");
@@ -49,7 +52,6 @@ public class UserServiceImpl implements UserService {
             System.out.println("用户注册"+user);
             return user.getId();
         }
-
         return -1;
     }
 

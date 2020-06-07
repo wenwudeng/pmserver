@@ -10,7 +10,7 @@ public interface UserService {
      * @param password 登录密码
      * @return 账号密码正确：1；密码错误：0；账号不存在：-1
      */
-    int login(String phone,String password);
+    int login(String phone,String password) throws Exception;
 
     /**
      * 注册
@@ -19,7 +19,7 @@ public interface UserService {
      * @param verifyCode 验证码
      * @return 注册成功：true；注册失败:false
      */
-    int register(String phone,String password,String verifyCode);
+    int register(String phone,String password,String verifyCode) throws Exception;
 
     /**
      * 指定id显示个人资料

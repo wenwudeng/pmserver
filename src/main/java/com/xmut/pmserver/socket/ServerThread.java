@@ -21,19 +21,19 @@ public class ServerThread extends Thread {
     }
 
     public void run() {
+
         try {
             while (true) {
-                // 信息的格式：(login||logout||say),发送人,收发人,信息体
+                // 信息的格式：发送人,收发人,信息体
                 //不断地读取客户端发过来的信息
                 String msg= user.getBr().readLine();
                 System.out.println("服务端收到："+msg);
                 String[] str = msg.split(",");
 
                 for (User user : list) {
-                    if (user.getName().equals(str[2])&&str[0].equals("say")) {
-                        sendToClient(str[2],msg);
-                    }else {
-                        System.out.println(str[2]+"不在线");
+                    if (user.getName().equals(str[0])) {
+                        sendToClient(str[1],msg);
+                        break;
                     }
                 }
             }
@@ -50,6 +50,7 @@ public class ServerThread extends Thread {
         }
     }
 
+
     private void sendToClient(String username, String msg) {
         for (User user : list) {
             if (user.getName().equals(username)) {
@@ -62,10 +63,6 @@ public class ServerThread extends Thread {
                 }
             }
         }
-    }
-
-    private void remove(User user2) {
-        list.remove(user2);
     }
 }
 
